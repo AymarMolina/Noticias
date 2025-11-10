@@ -10,6 +10,7 @@ interface Article {
   source: { name: string };
   publishedAt: string;
 }
+const API_KEY = process.env.NEXT_PUBLIC_GNEWS_API_KEY;
 
 interface Props {
   category: string;
@@ -23,7 +24,7 @@ export default function NewsGrid({ category }: Props) {
     const fetchNews = async () => {
       try {
         const res = await axios.get(
-        `https://gnews.io/api/v4/top-headlines?lang=en&topic=${category}&token=${process.env.NEXT_PUBLIC_GNEWS_API_KEY}`
+        `https://gnews.io/api/v4/top-headlines?lang=es&topic=${category}&token=${process.env.NEXT_PUBLIC_GNEWS_API_KEY}`
         );
 
         setNews(res.data.articles);
